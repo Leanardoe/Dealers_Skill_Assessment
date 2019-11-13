@@ -126,6 +126,28 @@
     <div id="business">
         <fieldset>
             <legend>Business Info</legend>
+            
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <p>Type of Business:</p>
+                    <label>
+                        <input id="type" type="radio" value="Corporation" />
+                        Corporation
+                    </label>
+                    <label>
+                        <input id="type" type="radio" value="LLC" />
+                        LLC
+                    </label>
+                    <label>
+                        <input id="type" type="radio" value="Sole Proprietor" />
+                        Sole Proprietor
+                    </label>
+                    <label>
+                        <input id="type" type="radio" value="Other" />
+                        Other
+                    </label>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
