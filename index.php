@@ -14,12 +14,7 @@
         .row {
             margin-bottom: 1rem;
         }
-        div#customer_info div.input-group {
-            display: flex;
-        }
-        div#customer_info div.input-group span.input-group-addon {
-            width: 85px;
-        }
+
         .pr-0 {
             padding-right: 0 !important;
         }
@@ -41,6 +36,9 @@
 
 <div class="container-fluid">
     <div id="customer_info">
+	
+		<h2>Add New Customer</h2>
+	
         <fieldset>
             <legend>Customer Info</legend>
 
@@ -131,19 +129,19 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <p>Type of Business:</p>
                     <label>
-                        <input id="type" type="radio" value="Corporation" />
+                        <input id="type" type="radio" name="type" value="Corporation" />
                         Corporation
                     </label>
                     <label>
-                        <input id="type" type="radio" value="LLC" />
+                        <input id="type" type="radio" name="type" value="LLC" />
                         LLC
                     </label>
                     <label>
-                        <input id="type" type="radio" value="Sole Proprietor" />
+                        <input id="type" type="radio" name="type" value="Sole Proprietor" />
                         Sole Proprietor
                     </label>
                     <label>
-                        <input id="type" type="radio" value="Other" />
+                        <input id="type" type="radio" name="type" value="Other" />
                         Other
                     </label>
                 </div>
