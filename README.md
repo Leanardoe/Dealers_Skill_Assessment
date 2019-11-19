@@ -46,7 +46,7 @@ Approx 1-2 hours to complete. Please take your time. This is a reflection of you
  6. Once complete, submit your final version of the project to Ted Cox (tcox@dwc-k.com). Alternatively, you may wish to push your work to the Dealers Warehouse GitHub repository: https://github.com/Dealers-Warehouse/Dealers_Skill_Assessment
  
 ## Examples
-For examples on how to use the FPDF Class, please see [examples/pdf/basic-pdf.php](https://github.com/Dealers-Warehouse/Dealers_Skill_Assessment/blob/james-adjust-readm/examples/pdf/basic-pdf.php) file.<br>
+For examples on how to use the FPDF Class, please see examples/pdf/basic-pdf.php file.<br>
 
 ## Technical Issues
 Please contact Erik (ejohnson@dwc-k.com) or James (jwillhoite@dwc-k.com)
