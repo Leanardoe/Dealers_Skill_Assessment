@@ -1,3 +1,5 @@
+![Logo](/examples/pdf/images/dwc_web_header_resized.png)
+
 # Dealers Warehouse PHP Skill Assessment
 
 ## Objective
