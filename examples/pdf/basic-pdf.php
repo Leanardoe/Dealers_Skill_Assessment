@@ -1,10 +1,9 @@
 <?php
-    /*
-     * This is file is to show how to use the FPDF Class
-     * This is the most basic example
-     */
+/*
+ * This file shows the basics of the FPDF Class
+ */
 
-    //Require the FPDF Library
+//Require the FPDF Library
 require_once __DIR__ . '/../../libraries/fpdf/fpdf.php';
 
 // Initialize the class in 'P'ortrate Mode, use 'in'ches, the page size is 8.5x11 inches
