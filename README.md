@@ -37,8 +37,9 @@ Create a website that can submit a form to save new customers, display existing 
 	
 - [x] Display a list of all customers in the database, ordered by the most recently added customers. Provide a way to click on a new customer and view the account details.
 
-- [x] Once complete, post your code to GitHub where it can be accessed by our reviewers. Alternatively, you may push your project to the Dealers Warehouse GitHub repository: https://github.com/Dealers-Warehouse/Dealers_Skill_Assessment
+- [x] Once complete, post your code to GitHub where it can be accessed by our reviewers.
 	- Provide a README.md file that explains how to set up the project locally for review
+	- Provide a database (.sql) file containing customer data
 
 ## Guidelines
 - You may use any frameworks (PHP, JavaScript or CSS) or none at all
