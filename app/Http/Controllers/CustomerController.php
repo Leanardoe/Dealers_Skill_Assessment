@@ -8,6 +8,11 @@ class CustomerController extends Controller
 {
     public function store(Request $request)
     {
-        // Placeholder - You will implement this logic
+        //Placeholder
     }
+    public function create()
+    {
+        return view('customers.create');
+    }
+
 }

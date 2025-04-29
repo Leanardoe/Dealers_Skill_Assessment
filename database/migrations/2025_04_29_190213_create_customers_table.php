@@ -13,8 +13,20 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('account_number')->unique();
+            $table->string('customer_name');
+            $table->string('address_1');
+            $table->string('address_2')->nullable();
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip');
+            $table->string('phone');
+            $table->string('email')->unique();
+            $table->string('business_type');
+            $table->json('preferred_days')->nullable();
             $table->timestamps();
         });
+        
     }
 
     /**
