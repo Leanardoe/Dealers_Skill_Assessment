@@ -1,3 +1,15 @@
+{{-- validation error check --}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+        <strong>There were some problems with your input:</strong>
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+     @endif
+
 <form action="{{ $formAction }}" method="POST">
     @csrf
     @if($isEdit)
@@ -50,7 +62,7 @@
 
     <div class="mb-3">
         <label for="business_type" class="form-label">Type of Business</label>
-        <select class="form-select" id="business_type" name="business_type">
+        <select class="form-select" id="business_type" name="business_type" required>
             <option disabled {{ old('business_type', $customer->business_type ?? '') ? '' : 'selected' }}>Choose...</option>
             @foreach (['Corporation', 'LLC', 'Sole Proprietor', 'Other'] as $type)
                 <option value="{{ $type }}" @selected(old('business_type', $customer->business_type ?? '') == $type)>
@@ -72,5 +84,14 @@
         @endforeach
     </div>
 
-    <button type="submit" class="btn btn-primary">{{ $isEdit ? 'Update' : 'Submit' }}</button>
+    <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap">
+        <button type="submit" class="btn btn-primary">
+            {{ $isEdit ? 'Update' : 'Submit' }}
+        </button>
+
+        <a href="{{ route('customers.index') }}" class="btn btn-outline-secondary">
+            ← Back
+        </a>
+    </div>
+
 </form>

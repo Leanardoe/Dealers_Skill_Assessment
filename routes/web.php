@@ -37,5 +37,5 @@ Route::get('/customers/{customer}/edit', [CustomerController::class, 'edit'])->n
 // Handle update submission
 Route::put('/customers/{customer}', [CustomerController::class, 'update'])->name('customers.update');
 
-// 👉Delete a customer
+// Delete a customer
 Route::delete('/customers/{customer}', [CustomerController::class, 'destroy'])->name('customers.destroy');

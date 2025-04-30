@@ -11,20 +11,23 @@ class CustomerController extends Controller
     //validate and store form information
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'customerName'     => 'required|string|max:255',
-            'address_1'        => 'required|string|max:255',
-            'address_2'        => 'nullable|string|max:255',
-            'city'             => 'required|string|max:100',
-            'state'            => 'required|string|max:50',
-            'zip'              => 'required|string|max:20',
-            'phone'            => 'required|string|max:20',
-            'email'            => 'required|email|max:255|unique:customers,email',
-            'business_type'    => 'required|string',
-            'preferred_days'   => 'nullable|array',
-            'preferred_days.*' => 'in:M,T,W,R,F', 
-        ]);
-
+        try {
+            $validated = $request->validate([
+                'customerName'     => 'required|string|max:255',
+                'address_1'        => 'required|string|max:255',
+                'address_2'        => 'nullable|string|max:255',
+                'city'             => 'required|string|max:100',
+                'state'            => 'required|string|max:50',
+                'zip'              => 'required|string|max:20',
+                'phone'            => 'required|string|max:20',
+                'email'            => 'required|email|max:255|unique:customers,email',
+                'business_type'    => 'required|string',
+                'preferred_days'   => 'nullable|array',
+                'preferred_days.*' => 'in:M,T,W,R,F', 
+            ]);
+        } catch (ValidationException $e) {
+            dd($e->errors());
+        }
         $accountNumber = 'ACCT-' . strtoupper(Str::random(6));
 
         $customer = Customer::create([
@@ -46,17 +49,20 @@ class CustomerController extends Controller
             ->with('success', 'Customer created successfully!');
     }
 
+    // show the form for creating a new customer
     public function create()
     {
         return view('customers.create', ['customer' => null]);
     }
 
+    // display details of a specific customer
     public function show(Customer $customer)
     {
         $customer->preferred_days = explode(',', $customer->preferred_days ?? '');
         return view('customers.show', compact('customer'));
     }
 
+    // show a list of all customers ordered by most recently added
     public function index()
     {
         $customers = Customer::orderBy('created_at', 'desc')->get();
@@ -64,12 +70,14 @@ class CustomerController extends Controller
         return view('customers.index', compact('customers'));
     }
 
+    //show the form for editing an existing customer
     public function edit(Customer $customer)
     {
         $customer->preferred_days = explode(',', $customer->preferred_days ?? '');
         return view('customers.edit', compact('customer'));
     }
 
+    //validate and update customer information from the edit page
     public function update(Request $request, Customer $customer)
     {
         $validated = $request->validate([

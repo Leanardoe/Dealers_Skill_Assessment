@@ -12,11 +12,17 @@
         <li class="list-group-item"><strong>Preferred Days:</strong> {{ implode(', ', $customer->preferred_days ?? []) }}</li>
     </ul>
 
-    <a href="{{ route('customers.edit', $customer) }}" class="btn btn-warning">Edit</a>
+    <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap">
+        <div class="d-flex gap-2">
+            <a href="{{ route('customers.edit', $customer) }}" class="btn btn-warning">Edit</a>
 
-    <form action="{{ route('customers.destroy', $customer) }}" method="POST" class="d-inline">
-        @csrf
-        @method('DELETE')
-        <button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-    </form>
+            <form action="{{ route('customers.destroy', $customer) }}" method="POST" onsubmit="return confirm('Are you sure?')">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+
+        <a href="{{ route('customers.index') }}" class="btn btn-outline-secondary">← Back</a>
+    </div>
 @endsection
