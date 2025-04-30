@@ -14,14 +14,28 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
+// Welcome page
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/customers/create', function () {
-    return view('customers.form');
-})->name('customers.create');
+// View all customers
+Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
 
-Route::post('/customers', [App\Http\Controllers\CustomerController::class, 'store'])->name('customers.store');
-
+// Show create form
 Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create');
+
+// Handle form submission
+Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
+
+// Show one customer
+Route::get('/customers/{customer}', [CustomerController::class, 'show'])->name('customers.show');
+
+// Show edit form
+Route::get('/customers/{customer}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
+
+// Handle update submission
+Route::put('/customers/{customer}', [CustomerController::class, 'update'])->name('customers.update');
+
+// 👉Delete a customer
+Route::delete('/customers/{customer}', [CustomerController::class, 'destroy'])->name('customers.destroy');

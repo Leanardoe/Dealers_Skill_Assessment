@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
-@section('content')
-    <h1 class="mb-4">Create Customer</h1>
+@section('title', 'Create Customer')
 
-    {{-- This is where your Bootstrap form will go --}}
+@section('content')
+    <h2>Add New Customer</h2>
+
+    @include('customers._form', [
+        'formAction' => route('customers.store'),
+        'customer'   => null,
+        'isEdit'     => false,
+    ])
 @endsection
