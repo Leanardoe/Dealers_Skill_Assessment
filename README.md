@@ -57,7 +57,7 @@ php artisan serve
 # (Optional) Reset the database and reseed if needed
 php artisan migrate:fresh --seed
 
-# 8. Then visit the URL given in the CLI
+# 8. Then visit the URL given in the CLI (Note that the Laravel welcome page displays breifly first)
 
 
 # Project Setup Instructions (Docker)
